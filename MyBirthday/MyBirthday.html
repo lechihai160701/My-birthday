@@ -1,153 +1,105 @@
-<html
-  lang="vi"
-  __fvdsurfcanyoninserted="1"
-  class="clickberry-extension clickberry-extension-standalone clickberry-extension clickberry-extension-standalone clickberry-extension clickberry-extension-standalone"
->
+<!DOCTYPE html>
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" type="image/png" href="./birthdayCake.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script>
-      window.open = function () {};
-      window.print = function () {};
-      // Support hover state for mobile.
-      if (false) {
-        window.ontouchstart = function () {};
-      }
-    </script>
-    <script
-      type="text/javascript"
-      src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"
-    ></script>
-    <meta content="clickberry-extension-here" />
-  </head>
-
-  <body>
     <link
-      href="https://fonts.googleapis.com/css?family=Wendy+One"
-      rel="stylesheet"
-      type="text/css"
-    />
+      href="https://fonts.googleapis.com/css2?family=Wendy+One&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+
+  </head>
+  <body>
+
+    <!-- Pháo hoa -->
     <div class="pyro">
       <div class="before"></div>
       <div class="after"></div>
-      <div class="container">
-        <div class="balloon">
-          <div><span>H</span></div>
-          <div><span>A</span></div>
-          <div><span>P</span></div>
-          <div><span>P</span></div>
-          <div><span>Y</span></div>
-          <div><span>B</span></div>
-          <div><span>I</span></div>
-          <div><span>R</span></div>
-          <div><span>T</span></div>
-          <div><span>H</span></div>
-          <div><span>D</span></div>
-          <div><span>A</span></div>
-          <div><span>Y</span></div>
-        </div>
-        <div class="avatar">
-          <img
-            src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/hinh-anh-mau-banh-sinh-nhat-dep-nhat.jpg"
-            alt=""
-            class="avatar__img"
-            onclick="showCountDown()"
-          />
-          <h1 class="avatar__title">
-            <div class="form-Info">
-              <input
-                type="text"
-                name="name"
-                id="input-name"
-                style="display: block"
-                placeholder="Nhập tên đi chời ơi!! "
-              />
-              <input
-                type="date"
-                id="input-date"
-                style="display: block; margin-top: 5px"
-              />
-              <select id="input-ny" style="display: block; margin-top: 5px">
-                <option value="" selected="selected">Có người yêu chưa</option>
-                <option value="Có">Có</option>
-                <option value="Chưa có">Chưa có</option>
-              </select>
-              <select id="input-sex" style="display: block; margin-top: 5px">
-                <option value="" selected="selected">Giới tính</option>
-                <option value="Nam">Nam</option>
-                <option value="Nữ">Nữ</option>
-              </select>
-              <button
-                class="submit"
-                style="display: block; margin-top: 5px"
-                onclick="showMessage()"
-              >
-                Hoàn tất
-              </button>
-            </div>
-          </h1>
-        </div>
-        <!-- Noel -->
-        <!-- <audio id="player" autoplay loop>
-          <source
-            src="https://hocban.vn/wp-content/uploads/2017/12/merry_christmas.mp3"
-            type="audio/mp3"
-          />
-        </audio> -->
-        <audio id="player" autoplay loop>
-          <source
-            src="https://media.nhackhongloi.me/download/mp3/dir_1/905_ms_yAfF9zLyOiM.mp3"
-            type="audio/mp3"
-          />
-        </audio>
-      </div>
     </div>
+
+    <!-- Bóng bay -->
+    <div class="balloon">
+      <div><span>H</span></div>
+      <div><span>A</span></div>
+      <div><span>P</span></div>
+      <div><span>P</span></div>
+      <div><span>Y</span></div>
+      <div><span>B</span></div>
+      <div><span>I</span></div>
+      <div><span>R</span></div>
+      <div><span>T</span></div>
+      <div><span>H</span></div>
+      <div><span>D</span></div>
+      <div><span>A</span></div>
+      <div><span>Y</span></div>
+    </div>
+
+    <!-- Bánh kem -->
+    <div class="cake" onclick="showMessage()">
+      <img
+        src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/hinh-anh-mau-banh-sinh-nhat-dep-nhat.jpg"
+        alt="Birthday Cake">
+    </div>
+
+    <!-- === FORM SIÊU NHỎ GỌN === -->
+    <div class="mini-form">
+      <h3 class="mini-title">Nhập thông tin nào!</h3>
+
+      <input type="text" id="input-name" placeholder="Tên bạn là gì?"
+        required />
+      <input type="date" id="input-date" required />
+
+      <select id="input-ny" required>
+        <option value disabled selected>Yêu chưa?</option>
+        <option value="Có">Có rồi</option>
+        <option value="Chưa có">Vẫn FA</option>
+      </select>
+
+      <select id="input-sex" required>
+        <option value disabled selected>Giới tính</option>
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+      </select>
+
+      <button class="mini-btn" onclick="showMessage()">Hoàn tất</button>
+    </div>
+
+    <audio id="player" autoplay loop>
+      <source
+        src="./music.mp3"
+        type="audio/mp3" />
+    </audio>
+
+    <!-- SweetAlert + JS -->
+    <script
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-      if (document.location.search.match(/type=embed/gi)) {
-        window.parent.postMessage("resize", "*");
+    function showMessage() {
+      const name = document.getElementById('input-name').value.trim();
+      const date = document.getElementById('input-date').value;
+      const ny = document.getElementById('input-ny').value;
+      const sex = document.getElementById('input-sex').value;
+
+      if (!name || !date || !ny || !sex) {
+        swal("Oops!", "Vui lòng điền đầy đủ thông tin nhé!", "warning");
+        return;
       }
 
-      function showCountDown() {
-        showMessage();
-      }
-      function showMessage() {
-        let ref = document.querySelector(".form-Info");
-        let btn = document.querySelector(".submit");
-        let me = document.querySelector(".avatar__title");
+      const age = new Date().getFullYear() - new Date(date).getFullYear();
+      const loveMsg = ny === "Có"
+        ? `và sẽ có một cái kết đẹp với người mình yêu`
+        : `hãy đi tìm ${sex === "Nữ" ? "chàng Hoàng tử" : "nàng Công chúa"} của mình đi nào!`;
 
-        var inputDate = document.getElementById("input-date").value;
-        var inputName = document.getElementById("input-name").value;
-
-        var currenDay = new Date().getFullYear();
-        let presentDate = new Date(inputDate).getFullYear();
-
-        var inputSex = document.getElementById("input-sex").value;
-        var inputNy = document.getElementById("input-ny").value;
-
-        swal({
-          title: "Lời nhắn",
-          text: `Gửi đến tôi, ${
-            inputSex === "Nữ" ? "Cô gái" : "chàng trai"
-          } năm ${
-            currenDay - presentDate
-          } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, ${
-            inputNy === "Chưa có"
-              ? `và cũng hãy đi tìm  ${
-                  inputSex === "Nữ" ? "chàng Hoàng tử" : "nàng Công chúa"
-                } của mình đi nào.`
-              : `và sẽ có một cái kết đẹp đối với người mình yêu. Chúc mừng sinh nhật ${inputName}`
-          }`,
-          button: {
-            text: "️tym",
-          },
-        });
-
-        me.innerHTML = inputName;
-        ref.classList.add("display");
-      }
-    </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      swal({
+        title: "CHÚC MỪNG SINH NHẬT",
+        text: `Gửi đến ${sex === "Nữ" ? "cô gái" : "chàng trai"} ${name} ${age} tuổi!\n\n` +
+              `Hãy cố gắng, yêu thương bản thân, hiếu thảo với bố mẹ, ${loveMsg}\n\n` +
+              `Chúc bạn một tuổi mới thật hạnh phúc!`,
+        icon: "success",
+        button: "Cảm ơn!",
+      });
+    }
+  </script>
   </body>
 </html>
